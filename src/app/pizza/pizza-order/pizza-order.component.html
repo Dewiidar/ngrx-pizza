@@ -1,0 +1,20 @@
+<div *ngFor="let pizza of pizzas | async">
+    {{'id: ' + pizza.id}}
+    <br>
+    {{'size: ' + pizza.size}}
+    <br>
+    <button *ngIf="pizza.size === 'small'" (click)="updatePizza(pizza.id, 'large')">
+        Upgrade to large
+    </button>
+
+    <button *ngIf="pizza.size === 'large'" (click)="updatePizza(pizza.id, 'small')">
+        Downgrade to small
+    </button>
+
+    <button (click)="deletePizza(pizza.id)">
+        Delete pizza
+    </button>
+
+</div>
+
+<button (click)="createPizza()">Create new pizza</button>
